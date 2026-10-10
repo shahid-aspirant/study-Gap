@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyGap — Find What You Truly Don't Understand</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & JetBrains Mono for Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: radial-gradient(circle at top right, #f8fafc, #f1f5f9);
+      min-height: 100vh;
+    }
+    .code-box {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .fade-in {
+      animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased font-sans flex flex-col justify-between min-h-screen">
+
+  <!-- TOP NAVIGATION HEADER -->
+  <header class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="showScreen('landing-screen')">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 font-bold text-lg">
+          SG
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-slate-900">Study<span class="text-brand-600">Gap</span></span>
+          <span class="hidden sm:inline-block ml-2 text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 font-medium">Domain 3: AI for Education</span>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <button id="quick-demo-btn" onclick="runOneClickJudgeDemo()" class="text-xs sm:text-sm font-semibold bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200/80 px-3 py-1.5 rounded-lg transition-colors flex items-center shadow-sm">
+          <span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-2 animate-ping"></span>
+          2-Min Judge Demo
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10 flex-grow w-full">
+
+    <!-- SCREEN 1: LANDING HERO -->
+    <section id="landing-screen" class="fade-in space-y-10">
+      <div class="text-center max-w-2xl mx-auto space-y-4 pt-4 sm:pt-8">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-brand-600 text-xs font-semibold uppercase tracking-wider">
+          <span>Targeted Diagnostic Engine</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          Find what you <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-500">truly don't understand</span>.
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          Students repeatedly get coding problems wrong without knowing which foundational concept is broken. Stop re-reading entire textbooks—diagnose your root-cause knowledge gap in 3 minutes.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+          <button onclick="showScreen('subject-screen')" class="w-full sm:w-auto px-7 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-lg shadow-brand-500/25 transition-all transform active:scale-95 flex items-center justify-center space-x-2">
+            <span>Start Diagnostic Quiz</span>
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+          <button onclick="runOneClickJudgeDemo()" class="w-full sm:w-auto px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl border border-slate-300 shadow-sm transition-all flex items-center justify-center space-x-2">
+            <svg class="w-4 h-4 text-amber-500 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"/></svg>
+            <span>Judge Demo Scenario</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- VALUE PROPOSITION COMPARISON CARDS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-6">
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-rose-200/70 shadow-sm relative overflow-hidden">
+          <div class="w-2 h-full bg-rose-500 absolute left-0 top-0"></div>
+          <div class="flex items-center space-x-2 text-rose-600 font-bold text-sm mb-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            <span>Traditional Quizzes</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-800 mb-1">"You scored 5/10. Re-study Chapter 4 (Loops)."</h3>
+          <p class="text-sm text-slate-600">Treats errors superficially. Students spend hours memorizing loop syntax when the real error was variable state tracking.</p>
+        </div>
+
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-brand-200 shadow-sm relative overflow-hidden">
+          <div class="w-2 h-full bg-brand-600 absolute left-0 top-0"></div>
+          <div class="flex items-center space-x-2 text-brand-600 font-bold text-sm mb-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>The StudyGap Approach</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-800 mb-1">"Your loop mistakes stem from Variable Tracing."</h3>
+          <p class="text-sm text-slate-600">Dissects the prerequisite dependency graph. Pinpoints the exact foundational gap and gives 2-minute targeted remediation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: SUBJECT SELECTION -->
+    <section id="subject-screen" class="hidden fade-in space-y-6">
+      <div class="text-center space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Select Subject Assessment</h2>
+        <p class="text-sm text-slate-500">Pick a diagnostic module to identify your learning gaps</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto pt-4">
+        <!-- Java Card (Active) -->
+        <div onclick="startQuiz()" class="bg-white p-6 rounded-2xl border-2 border-brand-500 shadow-md hover:shadow-xl transition-all cursor-pointer transform hover:-translate-y-1 relative group">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl">☕</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Ready</span>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 group-hover:text-brand-600 transition-colors">Java Foundations</h3>
+          <p class="text-xs text-slate-500 mt-1 mb-4">Variables, Operators, Control Flow, Loops, Bounds & Scope</p>
+          <div class="text-xs font-semibold text-brand-600 flex items-center">
+            <span>8 Diagnostic Questions (3 min)</span>
+            <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <!-- Python Card (Upcoming) -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 opacity-60 relative cursor-not-allowed">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl">🐍</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-200 text-slate-600">Coming Next</span>
+          </div>
+          <h3 class="font-bold text-lg text-slate-800">Python Basics</h3>
+          <p class="text-xs text-slate-500 mt-1">Mutability, Slicing, Indentation, Functions</p>
+        </div>
+
+        <!-- C++ Card (Upcoming) -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 opacity-60 relative cursor-not-allowed">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl">⚙️</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-200 text-slate-600">Coming Next</span>
+          </div>
+          <h3 class="font-bold text-lg text-slate-800">C++ Fundamentals</h3>
+          <p class="text-xs text-slate-500 mt-1">Pointers, References, Memory Allocation</p>
+        </div>
+      </div>
+
+      <div class="text-center pt-2">
+        <button onclick="showScreen('landing-screen')" class="text-xs text-slate-500 hover:text-slate-800 underline">
+          &larr; Back to Home
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: DIAGNOSTIC QUIZ -->
+    <section id="quiz-screen" class="hidden fade-in space-y-6">
+      <!-- Quiz Progress Header -->
+      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+        <div class="flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-600">
+          <div class="flex items-center space-x-2">
+            <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 font-mono" id="quiz-topic-badge">Variables</span>
+            <span id="question-progress-text">Question 1 of 8</span>
+          </div>
+          <span id="percentage-badge" class="text-brand-600 font-bold">12% Completed</span>
+        </div>
+        <!-- Progress Bar -->
+        <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+          <div id="progress-bar-fill" class="bg-brand-600 h-2.5 rounded-full transition-all duration-300" style="width: 12.5%;"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div class="bg-white p-5 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-500">Concept Diagnostic</span>
+          <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-900 mt-1">Loading question...</h3>
+        </div>
+
+        <!-- Code Snippet Area (if question has code) -->
+        <div id="code-snippet-container" class="rounded-xl overflow-hidden border border-slate-800 hidden">
+          <div class="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400 font-mono">
+            <span>Java Code</span>
+            <span class="text-indigo-400">JDK 17</span>
+          </div>
+          <pre id="code-snippet" class="code-box p-4 text-xs sm:text-sm overflow-x-auto"></pre>
+        </div>
+
+        <!-- Options Container -->
+        <div id="options-container" class="space-y-3">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+          <button id="prev-btn" onclick="goToPrevQuestion()" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100 transition-colors disabled:opacity-40 disabled:pointer-events-none">
+            &larr; Previous
+          </button>
+          
+          <button id="next-btn" onclick="goToNextQuestion()" class="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm rounded-xl shadow-md shadow-brand-500/20 transition-all flex items-center">
+            <span id="next-btn-text">Next Question</span>
+            <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: STUDYGAP DIAGNOSTIC RESULTS -->
+    <section id="results-screen" class="hidden fade-in space-y-6">
+      
+      <!-- Top Overview Banner -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Assessment Complete</span>
+          <h2 class="text-2xl font-black text-slate-900 mt-0.5">Your StudyGap Diagnostic Report</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">Here is why your mistakes happened and where to invest study time.</p>
+        </div>
+        <div class="text-center sm:text-right bg-slate-50 p-4 rounded-xl border border-slate-200/80 min-w-[130px]">
+          <div class="text-3xl font-black text-slate-900" id="result-score-percent">0%</div>
+          <div class="text-xs font-semibold text-slate-500" id="result-score-fraction">0 / 8 Correct</div>
+        </div>
+      </div>
+
+      <!-- THE CORE HERO FEATURE: THE IDENTIFIED KNOWLEDGE GAP CARD -->
+      <div id="gap-alert-card" class="rounded-2xl p-6 sm:p-7 border-2 shadow-lg transition-all relative overflow-hidden">
+        <!-- Will be dynamically colored and filled in diagnostic.js / app.js -->
+      </div>
+
+      <!-- TARGETED STUDY REMEDIATION CARD -->
+      <div id="remediation-card" class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm space-y-4">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- CONCEPT MASTERY BREAKDOWN PROGRESS BARS -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <h3 class="font-extrabold text-base text-slate-900 flex items-center space-x-2">
+          <span>Topic-by-Topic Mastery Breakdown</span>
+        </h3>
+        <p class="text-xs text-slate-500">Visual mapping of primary areas vs. foundational readiness.</p>
+        <div id="concept-breakdown-list" class="space-y-3 pt-2">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- QUESTION BY QUESTION AUDIT WITH MISCONCEPTION TRAPS -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+        <h3 class="font-extrabold text-base text-slate-900">Detailed Diagnostic Breakdown & Misconceptions</h3>
+        <p class="text-xs text-slate-500">Click on any question to view the exact misconception trap and underlying prerequisite tag.</p>
+        <div id="questions-audit-list" class="space-y-3 pt-2">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Actions Footer -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 pb-8">
+        <button onclick="startQuiz()" class="w-full sm:w-auto px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm rounded-xl shadow-md transition-all">
+          Retake Diagnostic
+        </button>
+        <button onclick="window.print()" class="w-full sm:w-auto px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-semibold text-sm rounded-xl shadow-sm transition-all">
+          Print / Save Summary
+        </button>
+        <button onclick="showScreen('landing-screen')" class="w-full sm:w-auto px-6 py-3 text-slate-600 hover:text-slate-900 text-sm font-semibold transition-all">
+          Back to Home
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-4xl mx-auto px-4 space-y-1">
+      <p class="font-semibold text-slate-700">StudyGap &bull; AI for Education (Domain 3)</p>
+      <p>Designed for fast root-cause gap diagnosis &bull; Zero login required &bull; 100% Client-Side Privacy</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC SCRIPTS -->
+  <script src="questions.js"></script>
+  <script src="diagnostic.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
