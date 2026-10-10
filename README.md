@@ -1,7 +1,6 @@
 # StudyGap — Find What a Student Doesn't Understand
 
-> **Official Hackathon Domain:** AI for Education  
-> **Project Prototype:** StudyGap Diagnostic Engine  
+> **Project:** StudyGap Concept Diagnostic Engine  
 > **Initial Subject Track:** Java Foundations  
 
 ---
@@ -126,5 +125,6 @@ When upgraded with an LLM backend (e.g., Gemini 1.5 Flash API):
 ---
 
 ## 👨‍💻 Author
-- Developed for **Hackathon Domain 3 (AI for Education)**
+- StudyGap Team
 - Built with a focus on simplicity, pedagogical accuracy, and rapid student diagnostic insight.
+
