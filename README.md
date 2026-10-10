@@ -1,6 +1,6 @@
 # StudyGap — Find What a Student Doesn't Understand
 
-> **Official Hackathon Domain:** Domain 3 — AI for Education  
+> **Official Hackathon Domain:** AI for Education  
 > **Project Prototype:** StudyGap Diagnostic Engine  
 > **Initial Subject Track:** Java Foundations  
 
@@ -88,24 +88,22 @@ Navigate to `http://localhost:3000` in your browser.
 
 ---
 
-## 🎬 6. Recommended 2-Minute Judge Demo
+## 🎬 6. Live Demo Walkthrough
 
-Follow this exact scenario during your live presentation:
+Follow this simple flow during your presentation:
 
-1. **Open the Live App:** Show the clean landing page explaining the core problem.
-2. **Click "2-Min Judge Demo" (Top Right Button):**  
-   - This automatically triggers the classic misconception test case:
-     - The student attempts 8 Java questions.
-     - They answer questions on Scope, Operators, and Methods correctly.
-     - However, they get the **Integer Division** question wrong and make errors in **Loop Accumulator Updates**.
-3. **Reveal the StudyGap Diagnostic Card:**
-   - Notice the score is **63%**.
-   - Show how traditional quizzes would say: *"You need to study Loops."*
+1. **Open the Live App:** Show the clean landing page explaining the core problem ("Find what you truly don't understand").
+2. **Start Assessment:** Click **"Start Diagnostic Quiz"** and select **Java Foundations**.
+3. **Answer the Diagnostic Questions:**
+   - Answer questions across foundational topics (Variables, Scope, Loops, Bounds).
+   - Intentionally select a classic misconception (e.g. choose `2.5` for integer division `5 / 2`, or make an off-by-one loop update error).
+4. **Reveal the StudyGap Diagnostic Report:**
+   - Submit the assessment.
+   - Show how traditional quizzes would simply say: *"Score: 5/8. Re-read loops."*
    - Highlight StudyGap's **Primary Root-Cause Gap Identified**:  
-     `Primitive Data Types & Integer Arithmetic` and `Variables & State Tracking`.
-   - Point out the **Actionable Remediation Card** showing the Quick Mental Rule:  
-     *"Remember: 'int / int' always cuts off decimals. Cast at least one operand: (double) a / b."*
-4. **Conclusion:** Students save 80% of their study time by fixing the root misconception first.
+     The system identifies the exact prerequisite breakdown (e.g. `Primitive Data Types & Integer Arithmetic` or `Variables & State Tracking`).
+   - Point out the **Actionable Remediation Card** showing the Quick Mental Rule and immediate micro-practice drill.
+5. **Key Takeaway:** Students save hours of study time by addressing the foundational breakdown rather than re-reading topics they already understand.
 
 ---
 

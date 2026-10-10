@@ -300,27 +300,6 @@ function displayResults(data) {
   });
 }
 
-// 1-Click Judge Demo Mode:
-// Sets up the exact convincing scenario:
-// Student scores 50%, missing questions tied to "Variables & State Tracking" / "Memory & Data Types",
-// proving that their loop failures are caused by foundational variables knowledge.
-function runOneClickJudgeDemo() {
-  activeQuestions = JAVA_QUESTIONS;
-  userAnswers = {
-    0: 0, // Q1 (Variables & Data Types: 5/2) -> User chooses "2.5" (Missed: Memory & Data Types)
-    1: 2, // Q2 (Scope) -> Correct
-    2: 1, // Q3 (Operators) -> Correct
-    3: 1, // Q4 (Conditionals) -> Correct
-    4: 0, // Q5 (Loops: for i+=2) -> User chooses "2 times" (Missed: Variables & State Tracking)
-    5: 2, // Q6 (Loops: accumulator) -> User chooses "8" (Missed: Variables & State Tracking)
-    6: 2, // Q7 (Arrays) -> Correct
-    7: 1  // Q8 (Methods) -> Correct
-  };
-
-  const diagnosis = runStudyGapDiagnosis(userAnswers, activeQuestions);
-  displayResults(diagnosis);
-  showScreen('results-screen');
-}
 
 // Utility: HTML escaping
 function escapeHtml(str) {
